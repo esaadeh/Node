@@ -3,3 +3,4 @@ node_modules
 
 # other files to ignore
 .DS_Store
+*~

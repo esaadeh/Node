@@ -1,3 +1,5 @@
+// importing the global variable 'getFortune' function from 'fortune.js' in the lib(rary) 
+var fortune = require('./lib/fortune.js');
 // requiring the express package
 var express = require('express');
 // setting the express package-functionality into a variable
@@ -17,8 +19,8 @@ app.get('/', function(req, res){
 });
 // about page route; if /about is requested, invoke functin to: in plain text - render About Meadowlark Travel(about page)
 app.get('/about', function(req, res){
-    var randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-    res.render('about', {fortune: randomFortune});
+    // var randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+    res.render('about', {fortune: fortune.getFortune()});
 });
 
 // if none of the route handlers written above are satisfied, route through error handlesrs below
@@ -42,4 +44,4 @@ app.listen(app.get('port'), function(){
 
 app.use(express.static(__dirname + '/public'));
 
-var fortunes = ['Conquer your fears or they will conquer you.', 'Rivers need springs', 'Do not fear what you don\'t know.', 'You will have a pleasant surprise.', 'Whenever possible, keep it simple'];
+// var fortunes = ['Conquer your fears or they will conquer you.', 'Rivers need springs', 'Do not fear what you don\'t know.', 'You will have a pleasant surprise.', 'Whenever possible, keep it simple'];
